@@ -28,7 +28,7 @@ Half of the reason I built this corpus was to create a framework for making a la
 4. At this point, I used the *Montreal Forced Aligner* (https://montreal-forced-aligner.readthedocs.io/en/latest/) to automatically transcribe each word into the phonetic alphabet. If you've never seen aligned TextGrids before, they look like this:
 ![Example TextGrid+WAV in Praat](https://github.com/turnerdan/joethecorpusrogan/blob/master/TextGrid_screenshot.png)
 
-This is as far as I took the "sound side" of the corpus, since many analyses can be carried out with the TextGrids alone. If you want to do something like an acoustic analysis of the speech, the scrape.R will download the files for you.
+This is as far as I took the "sound side" of the corpus, since many analyses can be carried out with the TextGrids alone. If you want to do something like an acoustic analysis of the speech, then `scrape.R` will download the files for you.
 
 5. `ngram.R` takes the transcripts and generates some frequency information for the "text side" analysis. The output of this script has two main parts, one that considers the transcript as a whole and one that looks at frequency across time (at the level of month). I did this because I want to see how the linguistic patterns and topics of the show have changed over time. 
 
