@@ -1,4 +1,4 @@
-# joe "the corpus" rogan corpus
+# the 'joe "the corpus" rogan' corpus
 A corpus of speech built from the Joe Rogan Experience podcast consisting of 8.43 million words. It includes aligned text grids with phoneme and word level transcripts.
 
 ## Quick Stats
