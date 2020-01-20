@@ -26,8 +26,7 @@ Half of the reason I built this corpus was to create a framework for making a la
 * podchunk.praat takes the wav files and csv files and creates TextGrid files that will tell our forced aligner what text goes with what spans of sound.
 
 * At this point, I used the Montreal Forced Aligner (https://montreal-forced-aligner.readthedocs.io/en/latest/) to automatically transcribe each word into the phonetic alphabet. If you've never seen aligned TextGrids before, they look like this:
-
-[screenshot]
+![Example TextGrid+WAV in Praat](https://github.com/turnerdan/joethecorpusrogan/blob/master/TextGrid_screenshot.png)
 
 This is as far as I took the "sound side" of the corpus, since many analyses can be carried out with the TextGrids alone. If you want to do something like an acoustic analysis of the speech, the scrape.R will download the files for you.
 
