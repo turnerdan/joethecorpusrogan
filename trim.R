@@ -2,9 +2,8 @@
 ### By Dan Turner
 
 ### TRANSCRIPT & AUDIO PAIRING SCRIPT
-# This file takes transcripts with inline timestamps and trims audio files to match, for aligning purposes.
-# Transcripts are in /t-raw/, the podcast dataframe is scrapelist.rds in the root, the trimmed transcripts are 
-#     in /podchunks/ as text files.
+# This file takes transcripts with inline timestamps and creates csv's that provide instructions to Praat for where to align the text.
+# Transcripts are in /t-raw/, the podcast dataframe is scrapelist.rds in the root, and the trim files are written to /podchunks/.
 
 ### Updated 1-18-2020
 
@@ -80,7 +79,7 @@ for (tr in 1:length(t.list)){
 ## Trim transcripts to timestamp intervals ##
 #############################################
 
-# Loop the transcripts and intervals to save all intervals to /labs/
+# Loop the transcripts and intervals to save all intervals to /podchunks/
 for (transcript in 1:nrow(eps)){
   
   # Load the transcript text and number
@@ -120,6 +119,6 @@ for (transcript in 1:nrow(eps)){
 
 # Done
 
-# Next: Create TextGrids with the attached Praatscript
-# Then we will force align using montreal forced aligner
+# Next: Create TextGrids with the attached Praatscript, podchunk.praat
+# Then we will force align using montreal forced aligner, using align.R
 
