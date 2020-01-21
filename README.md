@@ -1,9 +1,11 @@
-# the 'joe "the corpus" rogan' corpus
+# the 'joe "the corpus" rogan' corpus BETA
 A corpus of speech built from the Joe Rogan Experience podcast consisting of 8.43 million words. It includes aligned text grids with phoneme and word level transcripts.
 
-## Quick Stats
-* About 8.42 million words (w/ 67,819 unique types)
-* About 833 hours of speech
+## Quick Look
+* More than 8.42 million words
+* More than 833 hours of speech
+* Prepackaged ngram frequencies, overall and by month
+* Prealigned TextGrids for advanced acoustic analysis
 
 ## Basically
 It was a Friday night in January and it was too cold to leave the house and so I started working on my research project, by which I mean I started procrastinating on my research project. When I saw a JRE episode trending on YouTube, I realized how many episodes there were -- all with audio released for free online.
@@ -12,11 +14,10 @@ It was a Friday night in January and it was too cold to leave the house and so I
 
 But, I only gave myself the weekend to take on this crazy project. What I could get done in a couple of days is what you see here. I hope people find it interesting or useful.
 
-## Disclaimer
-I am not affiliated with the Joe Rogan Experience in any way. This corpus is not my personal endorsement of any messages of the show or its guests. None of the words in the corpus are my own.
+### Disclaimer
+Neither this corpus nor its creator (Dan Turner) are affiliated with Joe Rogan or this podcast in any way. This corpus is not an endorsement of the show, its host, or its guests. None of the words in the corpus are my own.
 
 # The Details
-
 Half of the reason I built this corpus was to create a framework for making a larger podcast corpus, for which this is a model. As such, I want to take a moment to document the workflow of the scripts I created and tools I used.
 
 1. `scrape.R` reads the official RSS feed for the podcast and parses it for basic info, like episode number, date, and mp3 url. It then tries to scrape the transcript from podscribe.app and, if one is available, it downloads it and the mp3 to the local machine. Lastly, it converts the mp3s to wav format.
@@ -28,7 +29,7 @@ Half of the reason I built this corpus was to create a framework for making a la
 4. At this point, I used the *Montreal Forced Aligner* (https://montreal-forced-aligner.readthedocs.io/en/latest/) to automatically transcribe each word into the phonetic alphabet. If you've never seen aligned TextGrids before, they look like this:
 ![Example TextGrid+WAV in Praat](https://github.com/turnerdan/joethecorpusrogan/blob/master/TextGrid_screenshot.png)
 
-This is as far as I took the "sound side" of the corpus, since many analyses can be carried out with the TextGrids alone. If you want to do something like an acoustic analysis of the speech, then `scrape.R` will download the files for you.
+This is as far as I took the "sound side" of the corpus, since many analyses can be carried out with the TextGrids alone. If you want to do something like an acoustic analysis of the formants or pitch, then `scrape.R` will prepare the files for you.
 
 5. `ngram.R` takes the transcripts and generates some frequency information for the "text side" analysis. The output of this script has two main parts, one that considers the transcript as a whole and one that looks at frequency across time (at the level of month). I did this because I want to see how the linguistic patterns and topics of the show have changed over time. 
 
