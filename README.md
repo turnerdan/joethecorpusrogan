@@ -1,4 +1,4 @@
-# the 'joe "the corpus" rogan' corpus BETA
+# the 'joe "the corpus" rogan' corpus BETA (aligning in progress)
 A corpus of speech built from the Joe Rogan Experience podcast consisting of 8.43 million words. It includes aligned text grids with phoneme and word level transcripts.
 
 ## Quick Look
@@ -7,7 +7,13 @@ A corpus of speech built from the Joe Rogan Experience podcast consisting of 8.4
 * Prepackaged ngram frequencies, overall and by month
 * Prealigned TextGrids for advanced acoustic analysis
 
-## Basically
+## Citation
+If you use this corpus for your research, please consider citing it:
+
+**Turner, D.R. (2020). The Joe The Corpus Rogan Corpus. https://github.com/turnerdan/joethecorpusrogan/**
+
+
+## Story
 It was a Friday night in January and it was too cold to leave the house and so I started working on my research project, by which I mean I started procrastinating on my research project. When I saw a JRE episode trending on YouTube, I realized how many episodes there were -- all with audio released for free online.
 
 "That's so much speech, and from the same speakers in the same discourse context, and over the course of a decade," I thought to myself, "I wonder if I can do something with that."
@@ -17,7 +23,7 @@ But, I only gave myself the weekend to take on this crazy project. What I could 
 ### Disclaimer
 Neither this corpus nor its creator (Dan Turner) are affiliated with Joe Rogan or this podcast in any way. This corpus is not an endorsement of the show, its host, or its guests. None of the words in the corpus are my own.
 
-# The Details
+# Details
 Half of the reason I built this corpus was to create a framework for making a larger podcast corpus, for which this is a model. As such, I want to take a moment to document the workflow of the scripts I created and tools I used.
 
 1. `scrape.R` reads the official RSS feed for the podcast and parses it for basic info, like episode number, date, and mp3 url. It then tries to scrape the transcript from podscribe.app and, if one is available, it downloads it and the mp3 to the local machine. Lastly, it converts the mp3s to wav format.
