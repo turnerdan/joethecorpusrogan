@@ -32,11 +32,10 @@ textgrids = list.files(pattern = ".*.TextGrid")
 setwd(backuppath)
 aligned = list.files(pattern = ".*.TextGrid")
 
-
-
 # Loop the text grid files to create a directory for each grid-wav pair to align
 
-tg = textgrids[1] # for testing 
+# Do we need to break the loop after this iteration?
+breakit = FALSE
 
 for (tg in textgrids){
   
@@ -60,7 +59,7 @@ for (tg in textgrids){
   
   # Set the Working Directory to MFA
   setwd("/Applications/MontrealForcedAligner")
-  
+
   # Write the call to MFA
   dictpath = "/Applications/MontrealForcedAligner/pretrained_models/englishdict.txt"
   mfaflags = "--verbose --quiet --speaker_characters 2"
@@ -77,9 +76,17 @@ for (tg in textgrids){
   
   # Delete scratch
   try(unlink(scratch, recursive=TRUE))
-  
+
   # Print a message
   print(paste("FINISHING", tg))
   
+  # If we need to break the loop
+  if (breakit) break
+  
 }
+# Bleep
+beep()
+
+
+
 
